@@ -8,8 +8,7 @@ import Navbar from "./components/layout/Navbar";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  withRouter
+  Routes
 } from "react-router-dom";
 import NotFound from "./components/pages/NotFound";
 import AddUser from "./components/users/AddUser";
@@ -25,22 +24,22 @@ function App(props) {
   return (
     <Router>
       <div className="App">
-        <h1 style={{color:'red'}}>School Management System</h1>
+        <h1 style={{color:'black'}}>School Management System</h1>
         <Navbar />
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/users/add" component={AddUser} />
-          <Route exact path="/userteacher/add" component={AddUser1} />
-          <Route exact path="/users/edit/:id" component={EditUser} />
-          <Route exact path="/users/assign/:id" component={Assign} />
-          <Route exact path="/userteacher/edit/:id" component={EditUser1} />
-          <Route exact path="/users/:id" component={User} />
-          <Route exact path="/userteacher/:id" component={User1} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/contact' element={<Contact/>} />
+          <Route path='/users/add' element={<AddUser/>} />
+          <Route path='/userteacher/:AddUser1' element={<AddUser1/>} />
+          <Route path='/users/edit/:id' element={<EditUser/>} />
+          <Route path='/users/assign/:id' element={<Assign/>} />
+          <Route path='/userteacher/edit/:id' element={<EditUser1/>} />
+          <Route path='/users/:id' element={<User/>} />
+          <Route path='/userteacher/:id' element={<User1/>} />
+          <Route element={<NotFound/>} />
+        </Routes>
       </div>
     </Router>
   );
